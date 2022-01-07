@@ -91,7 +91,7 @@ module jump (
         end
         else begin
             if (v_cnt >= 10'd402 - height - 10'd88 && v_cnt < 10'd402 - height -10'd14 && h_cnt>=10'd80 && h_cnt<10'd162) begin
-                if (state != 2'b0) begin //if running
+                if (state != 2'b0 && state != 2'b11) begin //if running
                     black_dino <= body_run[v_cnt+height-10'd314][h_cnt-10'd80];
                 end
                 else begin //if it stops
@@ -103,7 +103,7 @@ module jump (
             end
 
             if (v_cnt >= 10'd402 - height - 10'd14 && v_cnt < 10'd402 - height && h_cnt>=10'd80 && h_cnt<10'd162) begin
-                if (state != 2'b0 && height==0) begin
+                if ((state != 2'b0 && state != 2'b11) && height==0) begin
                     //moving feet
                     if (counter[3]) begin
                         black_dino <= feet_run_a[v_cnt+height-10'd388][h_cnt-10'd80];

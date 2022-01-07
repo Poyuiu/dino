@@ -40,6 +40,7 @@ module top(
 
     wire black_ground;
     wire black_dino;
+    wire black_cactus;
     reg [1:0] state;
     reg [1:0] next_state;
 
@@ -87,11 +88,21 @@ module top(
              .state(state),
              .black_dino(black_dino)
          );
+    cactus ct(
+               .vsync(vsync),
+               .clk(clk),
+               .rst(rst_op),
+               .h_cnt(h_cnt),
+               .v_cnt(v_cnt),
+               .state(state),
+               .black_cactus(black_cactus)
+           );
     pixel_gen pixel_gen_inst(
                   .h_cnt(h_cnt),
                   .v_cnt(v_cnt),
                   .black_ground(black_ground),
                   .black_dino(black_dino),
+                  .black_cactus(black_cactus),
                   .valid(valid),
                   .vgaRed(vgaRed),
                   .vgaGreen(vgaGreen),
@@ -125,14 +136,17 @@ module top(
             end
             2'b01: begin
                 // todo
-                next_state = 2'b01;
+                if(black_dino == 1'b1 && black_cactus == 1'b1)
+                    next_state = 2'b11;
+                else
+                    next_state = 2'b01;
             end
             2'b10: begin
                 // todo
                 next_state = 2'b10;
             end
             default:
-                next_state = 2'b0;
+                next_state = 2'b11;
         endcase
     end
 endmodule

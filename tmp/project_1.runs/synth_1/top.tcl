@@ -72,9 +72,6 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -90,10 +87,12 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
+  C:/Users/poyu/Desktop/tmp/cactus.v
   C:/Users/poyu/Desktop/tmp/clock_divider.v
   C:/Users/poyu/Desktop/tmp/ground.v
   C:/Users/poyu/Desktop/tmp/jump.v
   C:/Users/poyu/Desktop/tmp/pixel_gen.v
+  C:/Users/poyu/Desktop/tmp/random.v
   C:/Users/poyu/Desktop/tmp/vga.v
   C:/Users/poyu/Desktop/tmp/top.v
 }

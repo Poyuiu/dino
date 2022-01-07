@@ -29,7 +29,7 @@ module ground (
         end
         else begin
             last_vsync <= vsync;
-            if(vsync && !last_vsync && state != 2'b0)
+            if(vsync && !last_vsync && (state != 2'b0 && state != 2'b11))
                 ground_position<=(ground_position+6)%10'd160;//move the ground
             else
                 ground_position <= ground_position;

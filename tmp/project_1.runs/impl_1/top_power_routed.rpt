@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date             : Sat Jan  8 00:44:36 2022
+| Date             : Sat Jan  8 04:22:15 2022
 | Host             : DESKTOP-RDUCD48 running 64-bit major release  (build 9200)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -38,7 +38,7 @@ Table of Contents
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.6         |
 | Junction Temperature (C) | 25.4         |
-| Confidence Level         | Low          |
+| Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
 | Design Nets Matched      | NA           |
@@ -52,14 +52,14 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.002 |      514 |       --- |             --- |
-|   LUT as Logic |     0.002 |      324 |     20800 |            1.56 |
-|   CARRY4       |    <0.001 |       24 |      8150 |            0.29 |
-|   Register     |    <0.001 |       85 |     41600 |            0.20 |
-|   F7/F8 Muxes  |    <0.001 |        1 |     32600 |           <0.01 |
-|   Others       |     0.000 |       20 |       --- |             --- |
-| Signals        |     0.002 |      443 |       --- |             --- |
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |     0.002 |      775 |       --- |             --- |
+|   LUT as Logic |     0.002 |      477 |     20800 |            2.29 |
+|   CARRY4       |    <0.001 |       35 |      8150 |            0.43 |
+|   Register     |    <0.001 |      124 |     41600 |            0.30 |
+|   F7/F8 Muxes  |    <0.001 |       12 |     32600 |            0.04 |
+|   Others       |     0.000 |       23 |       --- |             --- |
+| Signals        |     0.002 |      615 |       --- |             --- |
 | DSPs           |    <0.001 |        2 |        90 |            2.22 |
 | I/O            |     0.002 |       33 |       106 |           31.13 |
 | Static Power   |     0.072 |          |           |                 |
@@ -96,12 +96,12 @@ Table of Contents
 | User Input Data             | Confidence | Details                                               | Action                                                                                                             |
 +-----------------------------+------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 | Design implementation state | High       | Design is routed                                      |                                                                                                                    |
-| Clock nodes activity        | Low        | User specified less than 75% of clocks                | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| Clock nodes activity        | Medium     | More than 5% of clocks are missing user specification | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
 | I/O nodes activity          | Medium     | More than 5% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
 | Internal nodes activity     | Medium     | User specified less than 25% of internal nodes        | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
 | Device models               | High       | Device models are Production                          |                                                                                                                    |
 |                             |            |                                                       |                                                                                                                    |
-| Overall confidence level    | Low        |                                                       |                                                                                                                    |
+| Overall confidence level    | Medium     |                                                       |                                                                                                                    |
 +-----------------------------+------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 
 
@@ -143,7 +143,7 @@ Table of Contents
 | Name       | Power (W) |
 +------------+-----------+
 | top        |     0.007 |
-|   jp       |     0.002 |
+|   ct       |     0.001 |
 |   vga_inst |     0.002 |
 +------------+-----------+
 

@@ -24,6 +24,8 @@ module top(
         input clk,
         input btnL,
         input btnC,
+        inout wire PS2_DATA,
+        inout wire PS2_CLK,
         output [3:0] vgaRed,
         output [3:0] vgaGreen,
         output [3:0] vgaBlue,
@@ -53,7 +55,32 @@ module top(
     wire rst_db;
     wire rst_op;
 
-    debounce db(btnC, jump_op, clk);
+    parameter [8:0] Q_CODES = 9'b0_0001_0101; // q => 15
+    parameter [8:0] SPACE_CODES = 9'b0_0010_1001; // space => 29
+    parameter [8:0] UP_CODES = 9'b0_0111_0101; // up => E075
+    parameter [8:0] DOWN_CODES = 9'b0_0111_0010; // down => E072
+
+    reg [15:0] nums;
+    reg [3:0] key_num;
+    reg [9:0] last_key;
+
+    wire shift_down;
+    wire [511:0] key_down;
+    wire [8:0] last_change;
+    wire been_ready;
+    assign jump_op =
+           (key_down[UP_CODES] == 1'b1 || key_down[SPACE_CODES] == 1'b1)
+           ? 1'b1 : 1'b0;
+    KeyboardDecoder key_de (
+                        .key_down(key_down),
+                        .last_change(last_change),
+                        .key_valid(been_ready),
+                        .PS2_DATA(PS2_DATA),
+                        .PS2_CLK(PS2_CLK),
+                        .rst(rst_op),
+                        .clk(clk)
+                    );
+    //debounce db(btnC, jump_op, clk);
     // onepulse op(jump_db, jump_op, clk_1Hz);
     debounce db2(btnL, rst_db, clk);
     onepulse op2(rst_db, rst_op, clk_1Hz);

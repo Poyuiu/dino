@@ -132,11 +132,14 @@ OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
   set_property webtalk.parent_dir C:/Users/poyu/Desktop/tmp/tmp/project_1.cache/wt [current_project]
   set_property parent.project_path C:/Users/poyu/Desktop/tmp/tmp/project_1.xpr [current_project]
+  set_property ip_repo_paths C:/Users/poyu/Desktop/tmp/ip [current_project]
+  update_ip_catalog
   set_property ip_output_repo C:/Users/poyu/Desktop/tmp/tmp/project_1.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/top.dcp
+  read_ip -quiet c:/Users/poyu/Desktop/tmp/tmp/project_1.srcs/sources_1/ip/KeyboardCtrl_0/KeyboardCtrl_0.xci
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Users/poyu/Desktop/tmp/Basys3_Master.xdc
 OPTRACE "read constraints: implementation" END { }

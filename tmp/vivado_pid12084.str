@@ -1453,3 +1453,10 @@ selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Progra
 // Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
 // 'cA' command handler elapsed time: 4 seconds
 selectButton("OptionPane.button", "Cancel"); // JButton
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,381 MB. GUI used memory: 92 MB. Current time: 1/8/22, 8:57:31 PM CST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,381 MB. GUI used memory: 91 MB. Current time: 1/8/22, 9:27:34 PM CST
+// WARNING: HEventQueue.dispatchEvent() is taking  2352138 ms.
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 2352715 ms. Increasing delay to 3000 ms.

@@ -78,10 +78,13 @@ create_project -in_memory -part xc7a35tcpg236-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
+set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir C:/Users/poyu/Desktop/tmp/tmp/project_1.cache/wt [current_project]
 set_property parent.project_path C:/Users/poyu/Desktop/tmp/tmp/project_1.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property ip_repo_paths c:/Users/poyu/Desktop/tmp/ip [current_project]
+update_ip_catalog
 set_property ip_output_repo c:/Users/poyu/Desktop/tmp/tmp/project_1.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
@@ -91,12 +94,15 @@ read_verilog -library xil_defaultlib {
   C:/Users/poyu/Desktop/tmp/clock_divider.v
   C:/Users/poyu/Desktop/tmp/ground.v
   C:/Users/poyu/Desktop/tmp/jump.v
+  C:/Users/poyu/Desktop/tmp/keyboard_decoder.v
   C:/Users/poyu/Desktop/tmp/pixel_gen.v
   C:/Users/poyu/Desktop/tmp/random.v
   C:/Users/poyu/Desktop/tmp/score.v
   C:/Users/poyu/Desktop/tmp/vga.v
   C:/Users/poyu/Desktop/tmp/top.v
 }
+read_ip -quiet c:/Users/poyu/Desktop/tmp/tmp/project_1.srcs/sources_1/ip/KeyboardCtrl_0/KeyboardCtrl_0.xci
+
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

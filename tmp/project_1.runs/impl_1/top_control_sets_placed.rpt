@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Sat Jan  8 04:21:58 2022
+| Date         : Sat Jan  8 20:21:22 2022
 | Host         : DESKTOP-RDUCD48 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    14 |
-|    Minimum number of control sets                        |    14 |
+| Total control sets                                       |    15 |
+|    Minimum number of control sets                        |    15 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    68 |
+| Unused register locations in slices containing registers |    74 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    14 |
+| Total control sets |    15 |
 | >= 0 to < 4        |     4 |
 | >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     2 |
 | >= 8 to < 10       |     1 |
 | >= 10 to < 12      |     3 |
-| >= 12 to < 14      |     2 |
+| >= 12 to < 14      |     1 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     1 |
+| >= 16              |     3 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,35 +58,36 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              41 |           16 |
+| No           | No                    | No                     |              41 |           18 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              24 |           12 |
+| No           | Yes                   | No                     |              41 |           22 |
 | Yes          | No                    | No                     |              15 |            4 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              44 |           18 |
+| Yes          | Yes                   | No                     |              69 |           26 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+------------------+-------------------------------+------------------------------+------------------+----------------+--------------+
-|   Clock Signal   |         Enable Signal         |       Set/Reset Signal       | Slice Load Count | Bel Load Count | Bels / Slice |
-+------------------+-------------------------------+------------------------------+------------------+----------------+--------------+
-|  clk_div_2/Q[0]  |                               | op2/rst_op                   |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG   | ct/wait_cnt[9]_i_1_n_0        | ct/wait_cnt[5]_i_1_n_0       |                1 |              1 |         1.00 |
-|  clk_div_2/Q[0]  |                               |                              |                2 |              2 |         1.00 |
-|  clk_div_22/S[0] |                               |                              |                1 |              2 |         2.00 |
-|  clk_IBUF_BUFG   | vga_inst/E[0]                 | op2/rst_op                   |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG   | ct/wait_cnt[9]_i_1_n_0        |                              |                2 |              6 |         3.00 |
-|  clk_IBUF_BUFG   | gr/ground_position0__0        | op2/rst_op                   |                3 |              7 |         2.33 |
-|  clk_IBUF_BUFG   | ct/wait_time[6]_i_1_n_0       |                              |                2 |              9 |         4.50 |
-|  clk_div_2/Q[0]  |                               | vga_inst/clear               |                4 |             10 |         2.50 |
-|  clk_div_2/Q[0]  | vga_inst/line_cnt             | vga_inst/line_cnt[9]_i_1_n_0 |                4 |             10 |         2.50 |
-|  clk_IBUF_BUFG   | ct/cactus_position[9]_i_1_n_0 | op2/rst_op                   |                4 |             10 |         2.50 |
-|  clk_IBUF_BUFG   | jp/jump_time_0                | op2/rst_op                   |                5 |             12 |         2.40 |
-|  clk_IBUF_BUFG   |                               | op2/rst_op                   |                7 |             13 |         1.86 |
-|  clk_IBUF_BUFG   |                               |                              |               13 |             37 |         2.85 |
-+------------------+-------------------------------+------------------------------+------------------+----------------+--------------+
++------------------+-------------------------------+-------------------------------+------------------+----------------+--------------+
+|   Clock Signal   |         Enable Signal         |        Set/Reset Signal       | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------+-------------------------------+-------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG   | ct/wait_cnt[9]_i_1_n_0        | ct/wait_cnt[5]_i_1_n_0        |                1 |              1 |         1.00 |
+|  clk_div_2/Q[0]  |                               | op2/rst_op                    |                1 |              1 |         1.00 |
+|  clk_div_22/S[0] |                               |                               |                1 |              2 |         2.00 |
+|  clk_div_2/Q[0]  |                               |                               |                2 |              2 |         1.00 |
+|  clk_IBUF_BUFG   | vga_inst/E[0]                 | op2/rst_op                    |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG   | ct/wait_cnt[9]_i_1_n_0        |                               |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG   | gr/ground_position0__0        | op2/rst_op                    |                3 |              7 |         2.33 |
+|  clk_IBUF_BUFG   | ct/wait_time[6]_i_1_n_0       |                               |                2 |              9 |         4.50 |
+|  clk_IBUF_BUFG   | ct/cactus_position[9]_i_1_n_0 | op2/rst_op                    |                5 |             10 |         2.00 |
+|  clk_div_2/Q[0]  |                               | vga_inst/pixel_cnt[9]_i_1_n_0 |                4 |             10 |         2.50 |
+|  clk_div_2/Q[0]  | vga_inst/line_cnt             | vga_inst/line_cnt[9]_i_1_n_0  |                4 |             10 |         2.50 |
+|  clk_IBUF_BUFG   | vga_inst/jump_time            | op2/rst_op                    |                5 |             12 |         2.40 |
+|  clk_IBUF_BUFG   | db/state_reg[0]               | op2/rst_op                    |                7 |             25 |         3.57 |
+|  clk_IBUF_BUFG   |                               | op2/rst_op                    |               17 |             30 |         1.76 |
+|  clk_IBUF_BUFG   |                               |                               |               15 |             37 |         2.47 |
++------------------+-------------------------------+-------------------------------+------------------+----------------+--------------+
 
 

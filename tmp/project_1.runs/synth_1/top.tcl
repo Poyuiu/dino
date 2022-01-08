@@ -93,6 +93,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/poyu/Desktop/tmp/jump.v
   C:/Users/poyu/Desktop/tmp/pixel_gen.v
   C:/Users/poyu/Desktop/tmp/random.v
+  C:/Users/poyu/Desktop/tmp/score.v
   C:/Users/poyu/Desktop/tmp/vga.v
   C:/Users/poyu/Desktop/tmp/top.v
 }

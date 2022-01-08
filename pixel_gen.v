@@ -4,6 +4,7 @@ module pixel_gen(
         input black_ground,
         input black_dino,
         input black_cactus,
+        input black_score,
         input valid,
         output reg [3:0] vgaRed,
         output reg [3:0] vgaGreen,
@@ -13,7 +14,7 @@ module pixel_gen(
         if(!valid)
             {vgaRed, vgaGreen, vgaBlue} = 12'h000;
         else
-            {vgaRed, vgaGreen, vgaBlue} = ((black_ground == 1) || (black_dino == 1) || (black_cactus == 1))
+            {vgaRed, vgaGreen, vgaBlue} = ((black_ground == 1) || (black_dino == 1) || (black_cactus == 1) || (black_score == 1))
             ? 12'h000 : 12'hfff;
     end
 endmodule

@@ -34,6 +34,9 @@ module top(
 
     wire clk_25MHz;
     wire clk_1Hz;
+    wire [16:0] pixel_addr;
+    wire [11:0] pixel;
+    wire [11:0] data;
     wire valid;
     wire [9:0] h_cnt; //640
     wire [9:0] v_cnt;  //480
@@ -41,6 +44,7 @@ module top(
     wire black_ground;
     wire black_dino;
     wire black_cactus;
+    wire black_score;
     reg [1:0] state;
     reg [1:0] next_state;
 
@@ -97,12 +101,30 @@ module top(
                .state(state),
                .black_cactus(black_cactus)
            );
+    score sc(
+              .clk(clk),
+              .rst(rst_op),
+              .h_cnt(h_cnt),
+              .v_cnt(v_cnt),
+              .state(state),
+              .jump_op(jump_op),
+              .black_score(black_score)
+          );
+    /*blk_mem_gen_0 blk_mem_gen_0_inst(
+                      .clka(clk_25MHz),
+                      .wea(0),
+                      .addra(pixel_addr),
+                      .dina(data[11:0]),
+                      .douta(pixel)
+                  );*/
+
     pixel_gen pixel_gen_inst(
                   .h_cnt(h_cnt),
                   .v_cnt(v_cnt),
                   .black_ground(black_ground),
                   .black_dino(black_dino),
                   .black_cactus(black_cactus),
+                  .black_score(black_score),
                   .valid(valid),
                   .vgaRed(vgaRed),
                   .vgaGreen(vgaGreen),

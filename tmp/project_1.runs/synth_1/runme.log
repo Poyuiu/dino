@@ -20,15 +20,21 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 2056
+INFO: [Synth 8-7075] Helper process launched with PID 9824
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1018.176 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1014.934 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/poyu/Desktop/tmp/top.v:23]
+	Parameter INITIAL bound to: 2'b00 
+	Parameter PLAY bound to: 2'b01 
+	Parameter Q_LEARNING bound to: 2'b10 
+	Parameter DEAD bound to: 2'b11 
 	Parameter Q_CODES bound to: 9'b000010101 
 	Parameter SPACE_CODES bound to: 9'b000101001 
 	Parameter UP_CODES bound to: 9'b001110101 
 	Parameter DOWN_CODES bound to: 9'b001110010 
+INFO: [Synth 8-6157] synthesizing module 'onepulse' [C:/Users/poyu/Desktop/tmp/top.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'onepulse' (1#1) [C:/Users/poyu/Desktop/tmp/top.v:1]
 INFO: [Synth 8-6157] synthesizing module 'KeyboardDecoder' [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:19]
 	Parameter INIT bound to: 2'b00 
 	Parameter WAIT_FOR_SIGNAL bound to: 2'b01 
@@ -37,50 +43,50 @@ INFO: [Synth 8-6157] synthesizing module 'KeyboardDecoder' [C:/Users/poyu/Deskto
 	Parameter IS_INIT bound to: 8'b10101010 
 	Parameter IS_EXTEND bound to: 8'b11100000 
 	Parameter IS_BREAK bound to: 8'b11110000 
-INFO: [Synth 8-6157] synthesizing module 'KeyboardCtrl_0' [C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/.Xil/Vivado-6824-DESKTOP-RDUCD48/realtime/KeyboardCtrl_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'KeyboardCtrl_0' (1#1) [C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/.Xil/Vivado-6824-DESKTOP-RDUCD48/realtime/KeyboardCtrl_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'OnePulse' [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'OnePulse' (2#1) [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:1]
+INFO: [Synth 8-6157] synthesizing module 'KeyboardCtrl_0' [C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/.Xil/Vivado-5208-DESKTOP-RDUCD48/realtime/KeyboardCtrl_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'KeyboardCtrl_0' (2#1) [C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/.Xil/Vivado-5208-DESKTOP-RDUCD48/realtime/KeyboardCtrl_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'OnePulse_keyboard' [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'OnePulse_keyboard' (3#1) [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:1]
 INFO: [Synth 8-226] default block is never used [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:83]
-INFO: [Synth 8-6155] done synthesizing module 'KeyboardDecoder' (3#1) [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:19]
+INFO: [Synth 8-6155] done synthesizing module 'KeyboardDecoder' (4#1) [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:19]
 INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/poyu/Desktop/tmp/top.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'debounce' (4#1) [C:/Users/poyu/Desktop/tmp/top.v:11]
-INFO: [Synth 8-6157] synthesizing module 'onepulse' [C:/Users/poyu/Desktop/tmp/top.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'onepulse' (5#1) [C:/Users/poyu/Desktop/tmp/top.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'debounce' (5#1) [C:/Users/poyu/Desktop/tmp/top.v:11]
 INFO: [Synth 8-6157] synthesizing module 'clock_divider' [C:/Users/poyu/Desktop/tmp/clock_divider.v:1]
 	Parameter n bound to: 2 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'clock_divider' (6#1) [C:/Users/poyu/Desktop/tmp/clock_divider.v:1]
 INFO: [Synth 8-6157] synthesizing module 'clock_divider__parameterized0' [C:/Users/poyu/Desktop/tmp/clock_divider.v:1]
 	Parameter n bound to: 22 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'clock_divider__parameterized0' (6#1) [C:/Users/poyu/Desktop/tmp/clock_divider.v:1]
-INFO: [Synth 8-6157] synthesizing module 'ground' [C:/Users/poyu/Desktop/tmp/ground.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'ground' (7#1) [C:/Users/poyu/Desktop/tmp/ground.v:1]
-INFO: [Synth 8-6157] synthesizing module 'jump' [C:/Users/poyu/Desktop/tmp/jump.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'jump' (8#1) [C:/Users/poyu/Desktop/tmp/jump.v:1]
-INFO: [Synth 8-6157] synthesizing module 'cactus' [C:/Users/poyu/Desktop/tmp/cactus.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Bot' [C:/Users/poyu/Desktop/tmp/bot.v:4]
 INFO: [Synth 8-6157] synthesizing module 'random' [C:/Users/poyu/Desktop/tmp/random.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'random' (9#1) [C:/Users/poyu/Desktop/tmp/random.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'cactus' (10#1) [C:/Users/poyu/Desktop/tmp/cactus.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'random' (7#1) [C:/Users/poyu/Desktop/tmp/random.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Bot' (8#1) [C:/Users/poyu/Desktop/tmp/bot.v:4]
+INFO: [Synth 8-6157] synthesizing module 'ground' [C:/Users/poyu/Desktop/tmp/ground.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'ground' (9#1) [C:/Users/poyu/Desktop/tmp/ground.v:1]
+INFO: [Synth 8-6157] synthesizing module 'jump' [C:/Users/poyu/Desktop/tmp/jump.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'jump' (10#1) [C:/Users/poyu/Desktop/tmp/jump.v:1]
+INFO: [Synth 8-6157] synthesizing module 'cactus' [C:/Users/poyu/Desktop/tmp/cactus.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'cactus' (11#1) [C:/Users/poyu/Desktop/tmp/cactus.v:1]
 INFO: [Synth 8-6157] synthesizing module 'score' [C:/Users/poyu/Desktop/tmp/score.v:56]
-INFO: [Synth 8-6155] done synthesizing module 'score' (11#1) [C:/Users/poyu/Desktop/tmp/score.v:56]
+INFO: [Synth 8-6155] done synthesizing module 'score' (12#1) [C:/Users/poyu/Desktop/tmp/score.v:56]
 INFO: [Synth 8-6157] synthesizing module 'pixel_gen' [C:/Users/poyu/Desktop/tmp/pixel_gen.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'pixel_gen' (12#1) [C:/Users/poyu/Desktop/tmp/pixel_gen.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'pixel_gen' (13#1) [C:/Users/poyu/Desktop/tmp/pixel_gen.v:1]
 INFO: [Synth 8-6157] synthesizing module 'vga_controller' [C:/Users/poyu/Desktop/tmp/vga.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'vga_controller' (13#1) [C:/Users/poyu/Desktop/tmp/vga.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'top' (14#1) [C:/Users/poyu/Desktop/tmp/top.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'vga_controller' (14#1) [C:/Users/poyu/Desktop/tmp/vga.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'top' (15#1) [C:/Users/poyu/Desktop/tmp/top.v:23]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1018.176 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1014.934 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1018.176 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1014.934 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1018.176 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1014.934 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1018.176 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 1014.934 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -93,20 +99,20 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1092.527 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1107.223 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1092.527 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1107.223 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1092.527 ; gain = 74.352
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1107.223 ; gain = 92.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1092.527 ; gain = 74.352
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1107.223 ; gain = 92.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -117,7 +123,7 @@ Applied set_property IO_BUFFER_TYPE = NONE for PS2_DATA. (constraint file  c:/Us
 Applied set_property CLOCK_BUFFER_TYPE = NONE for PS2_DATA. (constraint file  c:/Users/poyu/Desktop/tmp/tmp/project_1.gen/sources_1/ip/KeyboardCtrl_0/KeyboardCtrl_0/KeyboardCtrl_0_in_context.xdc, line 4).
 Applied set_property KEEP_HIERARCHY = SOFT for key_de/inst. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1092.527 ; gain = 74.352
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1107.223 ; gain = 92.289
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'KeyboardDecoder'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'top'
@@ -130,19 +136,19 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'top'
             WAIT_RELEASE |                               11 |                               11
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'KeyboardDecoder'
-WARNING: [Synth 8-327] inferring latch for variable 'next_score_reg' [C:/Users/poyu/Desktop/tmp/score.v:145]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                 iSTATE0 |                               00 |                               00
-                 iSTATE1 |                               01 |                               01
-                 iSTATE2 |                               10 |                               11
-*
+                 INITIAL |                               00 |                               00
+              Q_LEARNING |                               01 |                               10
+                    PLAY |                               10 |                               01
+                    DEAD |                               11 |                               11
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'top'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1092.527 ; gain = 74.352
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1107.223 ; gain = 92.289
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'bot/random1' (random) to 'bot/random2'
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -152,44 +158,50 @@ Detailed RTL Component Info :
 	   2 Input   16 Bit       Adders := 1     
 	   2 Input   12 Bit       Adders := 5     
 	   3 Input   12 Bit       Adders := 2     
-	   2 Input   11 Bit       Adders := 2     
-	   2 Input   10 Bit       Adders := 7     
+	   2 Input   11 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 8     
+	   2 Input    8 Bit       Adders := 1     
+	   3 Input    8 Bit       Adders := 1     
 	   2 Input    7 Bit       Adders := 1     
 	   2 Input    6 Bit       Adders := 1     
 	   2 Input    4 Bit       Adders := 5     
-	   2 Input    2 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 2     
 +---XORs : 
-	   4 Input      1 Bit         XORs := 1     
+	   4 Input      1 Bit         XORs := 2     
 +---Registers : 
 	              512 Bit    Registers := 1     
 	               32 Bit    Registers := 2     
 	               12 Bit    Registers := 3     
-	               10 Bit    Registers := 6     
-	                8 Bit    Registers := 1     
+	               10 Bit    Registers := 7     
+	                8 Bit    Registers := 99    
 	                4 Bit    Registers := 2     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 18    
+	                2 Bit    Registers := 5     
+	                1 Bit    Registers := 22    
 +---Muxes : 
 	   2 Input  512 Bit        Muxes := 1     
 	   9 Input  160 Bit        Muxes := 1     
 	  15 Input   83 Bit        Muxes := 3     
 	  59 Input   60 Bit        Muxes := 3     
+	   2 Input   32 Bit        Muxes := 8     
 	   4 Input   32 Bit        Muxes := 2     
-	   2 Input   32 Bit        Muxes := 5     
-	   5 Input   32 Bit        Muxes := 1     
-	   2 Input   25 Bit        Muxes := 1     
-	   4 Input   12 Bit        Muxes := 1     
-	   2 Input   12 Bit        Muxes := 1     
+	   4 Input   12 Bit        Muxes := 4     
+	   2 Input   12 Bit        Muxes := 4     
 	   4 Input   10 Bit        Muxes := 1     
 	   3 Input   10 Bit        Muxes := 1     
-	   2 Input   10 Bit        Muxes := 4     
+	   2 Input   10 Bit        Muxes := 9     
+	   2 Input    8 Bit        Muxes := 1     
+	   3 Input    8 Bit        Muxes := 2     
+	   4 Input    8 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 4     
-	   4 Input    2 Bit        Muxes := 1     
-	   2 Input    2 Bit        Muxes := 5     
-	   3 Input    2 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 18    
-	   4 Input    1 Bit        Muxes := 11    
+	   2 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 3     
+	   2 Input    2 Bit        Muxes := 13    
+	   3 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 124   
+	   4 Input    1 Bit        Muxes := 109   
 	1024 Input    1 Bit        Muxes := 1     
+	   5 Input    1 Bit        Muxes := 1     
+	   3 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -215,7 +227,7 @@ DSP Report: operator height0 is absorbed into DSP height0.
 DSP Report: operator height1 is absorbed into DSP height0.
 Why this net has no driver: _order_recur <const0>
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1092.527 ; gain = 74.352
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1107.223 ; gain = 92.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -248,19 +260,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:24 . Memory (MB): peak = 1097.137 ; gain = 78.961
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1108.070 ; gain = 93.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1128.055 ; gain = 109.879
+Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1139.742 ; gain = 124.809
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1165.137 ; gain = 146.961
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1183.875 ; gain = 168.941
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -278,37 +290,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1179.918 ; gain = 161.742
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1198.629 ; gain = 183.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1179.918 ; gain = 161.742
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1198.629 ; gain = 183.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1179.918 ; gain = 161.742
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1198.629 ; gain = 183.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1179.918 ; gain = 161.742
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1198.629 ; gain = 183.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1179.918 ; gain = 161.742
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1198.629 ; gain = 183.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1179.918 ; gain = 161.742
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1198.629 ; gain = 183.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -327,42 +339,43 @@ Report Cell Usage:
 +------+-------------+------+
 |1     |KeyboardCtrl |     1|
 |2     |BUFG         |     1|
-|3     |CARRY4       |    41|
+|3     |CARRY4       |    48|
 |4     |DSP48E1      |     2|
-|6     |LUT1         |     9|
-|7     |LUT2         |    89|
-|8     |LUT3         |    56|
-|9     |LUT4         |   151|
-|10    |LUT5         |   118|
-|11    |LUT6         |   425|
-|12    |MUXF7        |    13|
-|13    |FDCE         |    17|
-|14    |FDRE         |   158|
-|15    |FDSE         |     5|
-|16    |IBUF         |     2|
-|17    |OBUF         |    18|
-|18    |OBUFT        |    12|
+|6     |LUT1         |     8|
+|7     |LUT2         |    88|
+|8     |LUT3         |    61|
+|9     |LUT4         |   143|
+|10    |LUT5         |   127|
+|11    |LUT6         |   433|
+|12    |MUXF7        |    14|
+|13    |MUXF8        |     3|
+|14    |FDCE         |    18|
+|15    |FDRE         |   207|
+|16    |FDSE         |    10|
+|17    |IBUF         |     2|
+|18    |OBUF         |    18|
+|19    |OBUFT        |    12|
 +------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1179.918 ; gain = 161.742
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1198.629 ; gain = 183.695
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:26 . Memory (MB): peak = 1179.918 ; gain = 87.391
-Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1179.918 ; gain = 161.742
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 1198.629 ; gain = 91.406
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1198.629 ; gain = 183.695
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1191.973 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 56 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1210.715 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 67 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1191.973 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1210.715 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-53 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+56 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1191.973 ; gain = 173.797
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1210.715 ; gain = 195.781
 INFO: [Common 17-1381] The checkpoint 'C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Jan  8 23:16:30 2022...
+INFO: [Common 17-206] Exiting Vivado at Wed Jan 12 22:16:55 2022...

@@ -115,6 +115,8 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -123,6 +125,7 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 4
+  set_param synth.incrementalSynthesisCache C:/Users/poyu/Desktop/tmp/tmp/.Xil/Vivado-12416-DESKTOP-RDUCD48/incrSyn
   set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
@@ -139,7 +142,7 @@ OPTRACE "set parameters" START { }
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/top.dcp
-  read_ip -quiet c:/Users/poyu/Desktop/tmp/tmp/project_1.srcs/sources_1/ip/KeyboardCtrl_0/KeyboardCtrl_0.xci
+  read_ip -quiet C:/Users/poyu/Desktop/tmp/tmp/project_1.srcs/sources_1/ip/KeyboardCtrl_0/KeyboardCtrl_0.xci
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Users/poyu/Desktop/tmp/Basys3_Master.xdc
 OPTRACE "read constraints: implementation" END { }

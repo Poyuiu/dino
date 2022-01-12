@@ -1,4 +1,4 @@
-module OnePulse (
+module OnePulse_keyboard (
         output reg signal_single_pulse,
         input wire signal,
         input wire clock
@@ -60,7 +60,7 @@ module KeyboardDecoder(
                        .clk(clk)
                    );
 
-    OnePulse op (
+    OnePulse_keyboard op (
                  .signal_single_pulse(pulse_been_ready),
                  .signal(been_ready),
                  .clock(clk)

@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 `define NUMofSECTOR 32 // number of  sector, ex: screen width = 640,  NUMofSECTOR = 32, 1 sector is 640/32=20 pixels wide
-`define NUMofCACTUS 4 // number of cactus type
+`define NUMofCACTUS 3 // number of cactus type
 module Bot(
         input clk, // clock signal
         input reset, // reset signal
@@ -11,13 +11,15 @@ module Bot(
         // 3: bad reward on Q table for jumping;
         input [9:0] distance, // current distance to the closest cactus
         input [2:0] cactus, // current type of the closest cactus
-        input [9:0] jump_distance, //  which distance in the Q table should I update?
-        input [2:0] jump_cactus, // which type of cactus in the Q table should I update?
+        input success_jump, // when we jump successfully, this signal should raise to 1
         output reg prediction
     );
 
     reg [7:0] Q_table[`NUMofSECTOR-1:0][`NUMofCACTUS-1:0][1:0];
     integer i, j, k;
+
+    reg [9:0] jump_distance;
+    reg [1:0] jump_cactus;
 
     reg [7:0] epsilon; // rate of exploration v.s. exploitation
     wire [7:0] rand_num1, rand_num2; // random number between 0 and 255
@@ -26,6 +28,17 @@ module Bot(
 
     random random1 (.clk(clk), .rst(reset), .result(rand_num1));
     random random2 (.clk(clk), .rst(reset), .result(rand_num2));
+
+    always @(posedge clk) begin
+        if (success_jump == 1'b1) begin
+            jump_distance <= distance;
+            jump_cactus <= cactus;
+        end
+        else begin
+            jump_distance <= jump_distance;
+            jump_cactus <= jump_cactus;
+        end
+    end
 
     // make prediction
     always @(posedge clk) begin
@@ -71,9 +84,11 @@ module Bot(
                 2'b01: begin
                     Q_table[jump_distance/`NUMofSECTOR][jump_cactus][1] <= Q_table[jump_distance/`NUMofSECTOR][jump_cactus][1] + ((8'd255 - Q_table[jump_distance/`NUMofSECTOR][jump_cactus][1]) >> 2);
                 end
+                // bad reward on Q table for not jumping;
                 2'b10: begin
-                    Q_table[jump_distance/`NUMofSECTOR][jump_cactus][0] <= Q_table[jump_distance/`NUMofSECTOR][jump_cactus][0] - ((Q_table[jump_distance/`NUMofSECTOR][jump_cactus][0]) >> 2);
+                    Q_table[10'd15/`NUMofSECTOR][cactus][0] <= Q_table[10'd15/`NUMofSECTOR][cactus][0] - ((Q_table[10'd15/`NUMofSECTOR][cactus][0]) >> 2);
                 end
+                // bad reward on Q table for jumping;
                 2'b11: begin
                     Q_table[jump_distance/`NUMofSECTOR][jump_cactus][1] <= Q_table[jump_distance/`NUMofSECTOR][jump_cactus][1] - ((Q_table[jump_distance/`NUMofSECTOR][jump_cactus][1]) >> 2);
                 end

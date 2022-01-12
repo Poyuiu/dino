@@ -141,14 +141,8 @@ module score (
     always @(*) begin
         case (state)
             2'b00: begin
-                if(jump_op) begin
-                    next_score = 32'b0;
-                    next_score_cnt = 32'b0;
-                end
-                else begin
-                    next_score = score;
-                    next_score_cnt = score_cnt;
-                end
+                next_score = 32'b0;
+                next_score_cnt = 32'b0;
             end
             2'b01: begin
                 if(score_cnt < 32'd25_000_000) begin
@@ -156,6 +150,7 @@ module score (
                     next_score = score;
                 end
                 else begin
+                    next_score[31:16] = 16'b0;
                     next_score_cnt = 32'b0;
                     if(score[3:0] == 4'b1001) begin//if reach 9 ,carry a number.
                         next_score[3:0] = 0;
@@ -183,12 +178,48 @@ module score (
                     else begin
                         next_score[3:0] = score[3:0] + 1;
                         next_score[15:4] = score[15:4];
+                        next_score[31:16] = 16'b0;
                     end
                 end
             end
             2'b10: begin
-                next_score = score;
-                next_score_cnt = score_cnt;
+                if(score_cnt < 32'd25_000_000) begin
+                    next_score_cnt = score_cnt + 32'b1;
+                    next_score = score;
+                end
+                else begin
+                    next_score_cnt = 32'b0;
+                    next_score[31:16] = 16'b0;
+                    if(score[3:0] == 4'b1001) begin//if reach 9 ,carry a number.
+                        next_score[3:0] = 0;
+                        if(score[7:4] == 4'b1001) begin
+                            next_score[7:4] = 0;
+                            if(score[11:8] == 4'b1001) begin
+                                next_score[11:8] = 0;
+                                if(score[15:12] == 4'b1001) begin
+                                    next_score[15:12] = 0;
+                                end
+                                else begin
+                                    next_score[15:12] = score[15:12] + 1;
+                                end
+                            end
+                            else begin
+                                next_score[11:8] = score[11:8] + 1;
+                                next_score[15:12] = score[15:12];
+                            end
+                        end
+                        else begin
+                            next_score[7:4] = score[7:4] + 1;
+                            next_score[15:8] = score[15:8];
+                            next_score[31:16] = 16'b0;
+                        end
+                    end
+                    else begin
+                        next_score[3:0] = score[3:0] + 1;
+                        next_score[15:4] = score[15:4];
+                        next_score[31:16] = 16'b0;
+                    end
+                end
             end
             default: begin
                 next_score = score;

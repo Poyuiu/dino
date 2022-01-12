@@ -2,11 +2,14 @@ module jump (
         input vsync,
         input clk,
         input jump_op,
+        input Q_jump,
         input rst,
         input [9:0] h_cnt,
         input [9:0] v_cnt,
         input [1:0] state,
-        output reg black_dino
+        output reg black_dino,
+        output reg success_jump,
+        output reg jumping
     );
     reg [11:0] jump_time;
     wire [11:0] height;
@@ -15,7 +18,6 @@ module jump (
     reg [0:82] feet_stop [0:13];
     reg [0:82] feet_run_a [0:13];
     reg [0:82] feet_run_b [0:13];
-    reg jumping;
     reg last_vsync;
 
     reg [3:0] counter;
@@ -37,6 +39,8 @@ module jump (
                 counter <= counter+4'b1;
                 case (state)
                     2'b00: begin
+                        // initial state
+                        success_jump <= 1'b0;
                         if(jump_op) begin
                             jump_time <= 12'b0;
                             jumping <= 1'b1;
@@ -47,6 +51,8 @@ module jump (
                         end
                     end
                     2'b01: begin
+                        // playing
+                        success_jump <= 1'b0;
                         if (jump_op && jumping==1'b0) begin
                             jumping <= 1'b1;//begin to jump
                             jump_time <= jump_time;
@@ -67,18 +73,40 @@ module jump (
                         end
                     end
                     2'b10: begin
-                        //todo
-                        jumping <= jumping;
-                        jump_time <= jump_time;
+                        // Q learning
+                        if (Q_jump && jumping==1'b0) begin
+                            jumping <= 1'b1;//begin to jump
+                            success_jump <= 1'b1;
+                            jump_time <= jump_time;
+                        end
+                        else if (jumping) begin
+                            success_jump <= 1'b0;
+                            if (jump_time >= 12'd40) begin//reset jump operation
+                                jump_time <= 12'b0;
+                                jumping <= 1'b0;
+                            end
+                            else begin
+                                jumping <= jumping;
+                                jump_time <= jump_time+12'b1;//add jump_time
+                            end
+                        end
+                        else begin
+                            success_jump <= 1'b0;
+                            jumping <= jumping;
+                            jump_time <= jump_time;
+                        end
                     end
                     default: begin
-                        jump_time <= 12'b0;
-                        jumping <= 1'b0;
+                        // dead
+                        success_jump <= 1'b0;
+                        jump_time <= jump_time;
+                        jumping <= jumping;
                     end
                 endcase
             end
             else begin
                 counter <= counter;
+                success_jump <= 1'b0;
                 jumping <= jumping;
                 jump_time <= jump_time;
             end

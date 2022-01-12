@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Sat Jan  8 23:17:03 2022
+| Date         : Wed Jan 12 22:17:27 2022
 | Host         : DESKTOP-RDUCD48 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    19 |
-|    Minimum number of control sets                        |    19 |
+| Total control sets                                       |    20 |
+|    Minimum number of control sets                        |    20 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    84 |
+| Unused register locations in slices containing registers |    85 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    19 |
-| >= 0 to < 4        |     4 |
+| Total control sets |    20 |
+| >= 0 to < 4        |     3 |
 | >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     2 |
-| >= 8 to < 10       |     3 |
+| >= 8 to < 10       |     4 |
 | >= 10 to < 12      |     5 |
 | >= 12 to < 14      |     1 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     3 |
+| >= 16              |     4 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              41 |           16 |
-| No           | No                    | Yes                    |              63 |           20 |
-| No           | Yes                   | No                     |              43 |           23 |
-| Yes          | No                    | No                     |              15 |            5 |
-| Yes          | No                    | Yes                    |              41 |           11 |
-| Yes          | Yes                   | No                     |              65 |           25 |
+| No           | No                    | No                     |              40 |           16 |
+| No           | No                    | Yes                    |              64 |           23 |
+| No           | Yes                   | No                     |              90 |           33 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |              41 |            9 |
+| Yes          | Yes                   | No                     |              88 |           30 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -74,24 +74,25 @@ Table of Contents
 |    Clock Signal    |                   Enable Signal                   |        Set/Reset Signal       | Slice Load Count | Bel Load Count | Bels / Slice |
 +--------------------+---------------------------------------------------+-------------------------------+------------------+----------------+--------------+
 |  clk_div_2/Q[0]    |                                                   | op2/rst_op                    |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG     | ct/wait_cnt[8]_i_1_n_0                            | ct/wait_cnt[5]_i_1_n_0        |                1 |              1 |         1.00 |
-|  clk_div_2/Q[0]    |                                                   |                               |                1 |              2 |         2.00 |
 |  clk_div_22/out[0] |                                                   |                               |                1 |              2 |         2.00 |
+|  clk_div_2/Q[0]    |                                                   |                               |                2 |              2 |         1.00 |
 |  clk_IBUF_BUFG     | key_de/inst/inst/Ps2Interface_i/bits_count        | op2/rst_op                    |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG     | ct/wait_cnt[8]_i_1_n_0                            |                               |                2 |              6 |         3.00 |
-|  clk_IBUF_BUFG     | gr/ground_position0__0                            | op2/rst_op                    |                4 |              7 |         1.75 |
-|  clk_IBUF_BUFG     | key_de/inst/inst/Ps2Interface_i/rx_valid          | op2/rst_op                    |                2 |              8 |         4.00 |
-|  clk_IBUF_BUFG     | key_de/inst/inst/Ps2Interface_i/rx_finish         | op2/rst_op                    |                3 |              8 |         2.67 |
-|  clk_IBUF_BUFG     | ct/wait_time[6]_i_1_n_0                           |                               |                3 |              9 |         3.00 |
+|  clk_IBUF_BUFG     | ct/wait_time                                      | op2/rst_op                    |                3 |              7 |         2.33 |
+|  clk_IBUF_BUFG     | gr/ground_position0__0                            | op2/rst_op                    |                3 |              7 |         2.33 |
+|  clk_IBUF_BUFG     | bot/epsilon[7]_i_1_n_0                            | op2/rst_op                    |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG     | key_de/inst/inst/Ps2Interface_i/rx_finish         | op2/rst_op                    |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG     | key_de/inst/inst/Ps2Interface_i/rx_valid          | op2/rst_op                    |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG     | ct/cactus_position[9]_i_1_n_0                     | op2/rst_op                    |                4 |              9 |         2.25 |
 |  clk_div_2/Q[0]    |                                                   | vga_inst/pixel_cnt[9]_i_1_n_0 |                4 |             10 |         2.50 |
-|  clk_div_2/Q[0]    | vga_inst/line_cnt                                 | vga_inst/line_cnt[9]_i_1_n_0  |                4 |             10 |         2.50 |
-|  clk_IBUF_BUFG     | ct/cactus_position[9]_i_1_n_0                     | op2/rst_op                    |                4 |             10 |         2.50 |
-|  clk_IBUF_BUFG     | key_de/key                                        | op2/rst_op                    |                3 |             10 |         3.33 |
+|  clk_div_2/Q[0]    | vga_inst/line_cnt                                 | vga_inst/line_cnt[9]_i_1_n_0  |                5 |             10 |         2.00 |
+|  clk_IBUF_BUFG     | ct/wait_cnt[9]_i_1_n_0                            | op2/rst_op                    |                2 |             10 |         5.00 |
+|  clk_IBUF_BUFG     | key_de/key                                        | op2/rst_op                    |                2 |             10 |         5.00 |
 |  clk_IBUF_BUFG     | key_de/inst/inst/Ps2Interface_i/frame[10]_i_1_n_0 | op2/rst_op                    |                2 |             11 |         5.50 |
 |  clk_IBUF_BUFG     | vga_inst/jump_time                                | op2/rst_op                    |                4 |             12 |         3.00 |
-|  clk_IBUF_BUFG     | key_de/FSM_sequential_state_reg[1]_0              | op2/rst_op                    |                8 |             25 |         3.12 |
-|  clk_IBUF_BUFG     |                                                   |                               |               14 |             37 |         2.64 |
-|  clk_IBUF_BUFG     |                                                   | op2/rst_op                    |               38 |             95 |         2.50 |
+|  clk_IBUF_BUFG     | sc/jp/black_dino311_in                            | op2/rst_op                    |                7 |             25 |         3.57 |
+|  clk_IBUF_BUFG     |                                                   | bot/counter[0]_i_1__0_n_0     |                9 |             34 |         3.78 |
+|  clk_IBUF_BUFG     |                                                   |                               |               13 |             36 |         2.77 |
+|  clk_IBUF_BUFG     |                                                   | op2/rst_op                    |               42 |            109 |         2.60 |
 +--------------------+---------------------------------------------------+-------------------------------+------------------+----------------+--------------+
 
 

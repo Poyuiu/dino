@@ -34,6 +34,11 @@ module top(
         output [15:0] led
     );
 
+    parameter INITIAL = 2'b00;
+    parameter PLAY = 2'b01;
+    parameter Q_LEARNING = 2'b10;
+    parameter DEAD = 2'b11;
+
     wire clk_25MHz;
     wire clk_1Hz;
     wire [16:0] pixel_addr;
@@ -47,11 +52,21 @@ module top(
     wire black_dino;
     wire black_cactus;
     wire black_score;
+    wire [9:0] cactus_position;
+    wire [1:0] cactus_type;
+    wire success_jump;
+    wire jumping;
+    wire prediction;
+    reg [1:0] update_Qstate;
+    reg [1:0] next_update_Qstate;
+
     reg [1:0] state;
     reg [1:0] next_state;
+    reg [1:0] last_state;
 
     wire jump_db;
     wire jump_op;
+    wire Q_down;
     wire rst_db;
     wire rst_op;
 
@@ -59,7 +74,6 @@ module top(
     parameter [8:0] SPACE_CODES = 9'b0_0010_1001; // space => 29
     parameter [8:0] UP_CODES = 9'b0_0111_0101; // up => E075
     parameter [8:0] DOWN_CODES = 9'b0_0111_0010; // down => E072
-
     reg [15:0] nums;
     reg [3:0] key_num;
     reg [9:0] last_key;
@@ -71,6 +85,8 @@ module top(
     assign jump_op =
            (key_down[UP_CODES] == 1'b1 || key_down[SPACE_CODES] == 1'b1)
            ? 1'b1 : 1'b0;
+    onepulse op3 (key_down[Q_CODES], Q_down, clk);
+
     KeyboardDecoder key_de (
                         .key_down(key_down),
                         .last_change(last_change),
@@ -99,6 +115,15 @@ module top(
                       .clk(clk)
                   );
 
+    Bot bot (
+            .clk(clk), // clock signal
+            .reset(rst_op), // reset signal
+            .state(update_Qstate),
+            .distance(cactus_position), // current distance to the closest cactus
+            .cactus(cactus_type), // current type of the closest cactus
+            .success_jump(success_jump),
+            .prediction(prediction)
+        );
     ground gr(
                .h_cnt(h_cnt),
                .v_cnt(v_cnt),
@@ -113,11 +138,14 @@ module top(
              .vsync(vsync),
              .clk(clk),
              .jump_op(jump_op),
+             .Q_jump(prediction),
              .rst(rst_op),
              .h_cnt(h_cnt),
              .v_cnt(v_cnt),
              .state(state),
-             .black_dino(black_dino)
+             .black_dino(black_dino),
+             .success_jump(success_jump),
+             .jumping(jumping)
          );
     cactus ct(
                .vsync(vsync),
@@ -126,7 +154,9 @@ module top(
                .h_cnt(h_cnt),
                .v_cnt(v_cnt),
                .state(state),
-               .black_cactus(black_cactus)
+               .black_cactus(black_cactus),
+               .cactus_position(cactus_position),
+               .cactus_type(cactus_type)
            );
     score sc(
               .clk(clk),
@@ -169,33 +199,86 @@ module top(
                      );
     always @(posedge clk) begin
         if (rst_op) begin
-            state <= 2'b0;
+            last_state <= INITIAL;
+            state <= INITIAL;
         end
         else begin
+            last_state <= state;
             state <= next_state;
         end
     end
     always @(*) begin
         case (state)
-            2'b00: begin
-                if (jump_op)
-                    next_state = 2'b01;
-                else
-                    next_state = 2'b0;
+            INITIAL: begin
+                if (last_state == Q_LEARNING) begin
+                    next_state = Q_LEARNING;
+                end
+                else begin
+                    if (jump_op)
+                        next_state = PLAY;
+                    else if (Q_down)
+                        next_state = Q_LEARNING;
+                    else
+                        next_state = INITIAL;
+                end
             end
-            2'b01: begin
-                // todo
+            PLAY: begin
                 if(black_dino == 1'b1 && black_cactus == 1'b1)
-                    next_state = 2'b11;
+                    next_state = DEAD;
                 else
-                    next_state = 2'b01;
+                    next_state = PLAY;
             end
-            2'b10: begin
-                // todo
-                next_state = 2'b10;
+            Q_LEARNING: begin
+                if(black_dino == 1'b1 && black_cactus == 1'b1)
+                    next_state = INITIAL;
+                else begin
+                    if(Q_down)
+                        next_state = DEAD;
+                    else
+                        next_state = Q_LEARNING;
+                end
+
             end
-            default:
-                next_state = 2'b11;
+            DEAD: begin
+                if (jump_op || last_state == Q_LEARNING)
+                    next_state = INITIAL;
+                else
+                    next_state = DEAD;
+            end
         endcase
     end
+    // 640 - (posistion - 60) < 80
+    // => position > 620
+    always @(posedge clk) begin
+        if(rst_op)
+            update_Qstate <= 2'b0;
+        else
+            update_Qstate <= next_update_Qstate;
+    end
+    always @(*) begin
+        case (state)
+            INITIAL: begin
+                next_update_Qstate = 2'b0;
+            end
+            PLAY: begin
+                next_update_Qstate = 2'b0;
+            end
+            Q_LEARNING: begin
+                if(cactus_position == 10'd624)
+                    next_update_Qstate = 2'b1;
+                else if(black_dino == 1'b1 && black_cactus == 1'b1) begin
+                    if(jumping)
+                        next_update_Qstate = 2'b11;
+                    else
+                        next_update_Qstate = 2'b10;
+                end
+                else
+                    next_update_Qstate = 2'b0;
+            end
+            DEAD: begin
+                next_update_Qstate = 2'b0;
+            end
+        endcase
+    end
+
 endmodule

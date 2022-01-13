@@ -1,10 +1,10 @@
 module cactus (
-        input vsync,
         input clk,
         input rst,
         input [9:0] h_cnt,
         input [9:0] v_cnt,
         input [1:0] state,
+        input new_frame,
         output reg black_cactus,
         output reg [9:0] cactus_position,
         output reg [1:0] cactus_type // 0: no cactus, 1~3: type 1~3
@@ -19,23 +19,20 @@ module cactus (
     reg [59:0] ptn3 [57:0];
     reg [9:0] wait_cnt;
     reg [9:0] wait_time;
-    reg last_vsync;
     always @(posedge clk) begin
         if (rst) begin
             cactus_position <= 10'b0;
             cactus_type <= 2'b0;
-            last_vsync <= 1'b0;
             wait_time <= 10'b0;
             wait_cnt <= 10'b0;
         end
         else begin
-            last_vsync <= vsync;
-            if(vsync && !last_vsync ) begin
+            if(new_frame) begin
                 if(state != 2'b0 && state != 2'b11) begin
                     if (cactus_position == 10'b0) begin
                         if (wait_cnt == 10'b0) begin
                             wait_time <= (rand_num[3:0]) * 10'd5;//wait time randoms from 0s to 5s (60 frames every second)
-                            cactus_type <= ((rand_num[4:0]) % 3)+1;//random a cactus type
+                            cactus_type <= ((rand_num) % 8'd3)+8'd1;//random a cactus type
                             wait_cnt <= 10'b1;
                         end
                         else begin

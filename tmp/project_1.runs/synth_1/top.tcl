@@ -71,8 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
-set_param synth.incrementalSynthesisCache C:/Users/poyu/Desktop/tmp/tmp/.Xil/Vivado-12416-DESKTOP-RDUCD48/incrSyn
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }

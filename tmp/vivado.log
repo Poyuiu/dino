@@ -706,3 +706,426 @@ program_hw_devices [get_hw_devices xc7a35t_0]
 INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 22:22:44 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 22:22:44 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 3633.617 ; gain = 13.844
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/poyu/Desktop/tmp/top.v:23]
+	Parameter INITIAL bound to: 2'b00 
+	Parameter PLAY bound to: 2'b01 
+	Parameter Q_LEARNING bound to: 2'b10 
+	Parameter DEAD bound to: 2'b11 
+	Parameter Q_CODES bound to: 9'b000010101 
+	Parameter SPACE_CODES bound to: 9'b000101001 
+	Parameter UP_CODES bound to: 9'b001110101 
+	Parameter DOWN_CODES bound to: 9'b001110010 
+INFO: [Synth 8-6157] synthesizing module 'onepulse' [C:/Users/poyu/Desktop/tmp/top.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'onepulse' (1#1) [C:/Users/poyu/Desktop/tmp/top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'KeyboardDecoder' [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:19]
+	Parameter INIT bound to: 2'b00 
+	Parameter WAIT_FOR_SIGNAL bound to: 2'b01 
+	Parameter GET_SIGNAL_DOWN bound to: 2'b10 
+	Parameter WAIT_RELEASE bound to: 2'b11 
+	Parameter IS_INIT bound to: 8'b10101010 
+	Parameter IS_EXTEND bound to: 8'b11100000 
+	Parameter IS_BREAK bound to: 8'b11110000 
+INFO: [Synth 8-6157] synthesizing module 'KeyboardCtrl_0' [C:/Users/poyu/Desktop/tmp/tmp/.Xil/Vivado-12416-DESKTOP-RDUCD48/realtime/KeyboardCtrl_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'KeyboardCtrl_0' (2#1) [C:/Users/poyu/Desktop/tmp/tmp/.Xil/Vivado-12416-DESKTOP-RDUCD48/realtime/KeyboardCtrl_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'OnePulse_keyboard' [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'OnePulse_keyboard' (3#1) [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:1]
+INFO: [Synth 8-226] default block is never used [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:83]
+INFO: [Synth 8-6155] done synthesizing module 'KeyboardDecoder' (4#1) [C:/Users/poyu/Desktop/tmp/keyboard_decoder.v:19]
+INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/poyu/Desktop/tmp/top.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'debounce' (5#1) [C:/Users/poyu/Desktop/tmp/top.v:11]
+INFO: [Synth 8-6157] synthesizing module 'clock_divider' [C:/Users/poyu/Desktop/tmp/clock_divider.v:1]
+	Parameter n bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'clock_divider' (6#1) [C:/Users/poyu/Desktop/tmp/clock_divider.v:1]
+INFO: [Synth 8-6157] synthesizing module 'clock_divider__parameterized0' [C:/Users/poyu/Desktop/tmp/clock_divider.v:1]
+	Parameter n bound to: 22 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'clock_divider__parameterized0' (6#1) [C:/Users/poyu/Desktop/tmp/clock_divider.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Bot' [C:/Users/poyu/Desktop/tmp/bot.v:4]
+INFO: [Synth 8-6157] synthesizing module 'random' [C:/Users/poyu/Desktop/tmp/random.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'random' (7#1) [C:/Users/poyu/Desktop/tmp/random.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Bot' (8#1) [C:/Users/poyu/Desktop/tmp/bot.v:4]
+INFO: [Synth 8-6157] synthesizing module 'ground' [C:/Users/poyu/Desktop/tmp/ground.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'ground' (9#1) [C:/Users/poyu/Desktop/tmp/ground.v:1]
+INFO: [Synth 8-6157] synthesizing module 'jump' [C:/Users/poyu/Desktop/tmp/jump.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'jump' (10#1) [C:/Users/poyu/Desktop/tmp/jump.v:1]
+INFO: [Synth 8-6157] synthesizing module 'cactus' [C:/Users/poyu/Desktop/tmp/cactus.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'cactus' (11#1) [C:/Users/poyu/Desktop/tmp/cactus.v:1]
+INFO: [Synth 8-6157] synthesizing module 'score' [C:/Users/poyu/Desktop/tmp/score.v:56]
+INFO: [Synth 8-6155] done synthesizing module 'score' (12#1) [C:/Users/poyu/Desktop/tmp/score.v:56]
+INFO: [Synth 8-6157] synthesizing module 'pixel_gen' [C:/Users/poyu/Desktop/tmp/pixel_gen.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'pixel_gen' (13#1) [C:/Users/poyu/Desktop/tmp/pixel_gen.v:1]
+INFO: [Synth 8-6157] synthesizing module 'vga_controller' [C:/Users/poyu/Desktop/tmp/vga.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'vga_controller' (14#1) [C:/Users/poyu/Desktop/tmp/vga.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'top' (15#1) [C:/Users/poyu/Desktop/tmp/top.v:23]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3645.812 ; gain = 26.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3668.688 ; gain = 48.914
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3668.688 ; gain = 48.914
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/poyu/Desktop/tmp/tmp/project_1.gen/sources_1/ip/KeyboardCtrl_0/KeyboardCtrl_0.dcp' for cell 'key_de/inst'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 3686.090 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/poyu/Desktop/tmp/Basys3_Master.xdc]
+Finished Parsing XDC File [C:/Users/poyu/Desktop/tmp/Basys3_Master.xdc]
+Completed Processing XDC Constraints
+
+refresh_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:08 . Memory (MB): peak = 3686.090 ; gain = 66.316
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 22:30:15 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 22:30:15 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 22:30:51 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 22:30:51 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 22:33:28 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 22:33:28 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 22:42:52 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 22:42:52 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 22:44:23 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 22:44:23 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 22:46:42 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 22:46:42 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+reset_run impl_1 -prev_step 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 22:48:15 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 22:48:15 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 22:51:15 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 22:51:15 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 23:03:54 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 23:03:54 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 23:09:43 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 23:09:43 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 23:14:29 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 23:14:29 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 23:25:47 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 23:25:47 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 23:36:47 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 23:36:47 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 23:43:25 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 23:43:25 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+refresh_design
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [Common 17-344] 'source' was cancelled
+INFO: [Common 17-344] 'refresh_design' was cancelled
+close_design
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 23:46:56 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 23:46:56 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 23:49:37 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 23:49:37 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 23:52:24 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 23:52:24 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Jan 12 23:57:56 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Wed Jan 12 23:57:56 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Thu Jan 13 00:07:16 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Thu Jan 13 00:07:16 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Thu Jan 13 00:08:12 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Thu Jan 13 00:08:12 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Thu Jan 13 00:12:48 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Thu Jan 13 00:12:48 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Thu Jan 13 00:16:42 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Thu Jan 13 00:16:42 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Thu Jan 13 00:23:21 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Thu Jan 13 00:23:21 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Thu Jan 13 00:25:08 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Thu Jan 13 00:25:08 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Thu Jan 13 00:28:06 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Thu Jan 13 00:28:06 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Thu Jan 13 00:31:00 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Thu Jan 13 00:31:01 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Thu Jan 13 00:35:24 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Thu Jan 13 00:35:24 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Thu Jan 13 00:39:15 2022] Launched synth_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/synth_1/runme.log
+[Thu Jan 13 00:39:15 2022] Launched impl_1...
+Run output will be captured here: C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/poyu/Desktop/tmp/tmp/project_1.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Jan 13 00:46:15 2022...

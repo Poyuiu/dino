@@ -1,5 +1,4 @@
 module jump (
-        input vsync,
         input clk,
         input jump_op,
         input Q_jump,
@@ -7,6 +6,7 @@ module jump (
         input [9:0] h_cnt,
         input [9:0] v_cnt,
         input [1:0] state,
+        input new_frame,
         output reg black_dino,
         output reg success_jump,
         output reg jumping
@@ -18,7 +18,6 @@ module jump (
     reg [0:82] feet_stop [0:13];
     reg [0:82] feet_run_a [0:13];
     reg [0:82] feet_run_b [0:13];
-    reg last_vsync;
 
     reg [3:0] counter;
 
@@ -31,11 +30,9 @@ module jump (
             counter <= 4'b0;
             jumping <= 1'b0;
             jump_time <= 12'b0;
-            last_vsync <= 1'b0;
         end
         else begin
-            last_vsync <= vsync;
-            if(vsync && !last_vsync) begin
+            if(new_frame) begin
                 counter <= counter+4'b1;
                 case (state)
                     2'b00: begin
@@ -119,12 +116,13 @@ module jump (
         end
         else begin
             if (v_cnt >= 10'd402 - height - 10'd88 && v_cnt < 10'd402 - height -10'd14 && h_cnt>=10'd80 && h_cnt<10'd162) begin
-                if (state != 2'b0 && state != 2'b11) begin //if running
-                    black_dino <= body_run[v_cnt+height-10'd314][h_cnt-10'd80];
-                end
-                else begin //if it stops
+                if (state == 2'b11) begin //if it stops
                     black_dino <= body_stop[v_cnt+height-10'd314][h_cnt-10'd80];
                 end
+                else  begin //if running
+                    black_dino <= body_run[v_cnt+height-10'd314][h_cnt-10'd80];
+                end
+                
             end
             else begin
                 black_dino <= 1'b0;

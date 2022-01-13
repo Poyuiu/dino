@@ -1,14 +1,13 @@
 module ground (
         input [9:0] h_cnt,
         input [9:0] v_cnt,
-        input vsync,
         input clk,
-        input [1:0] state,
         input rst,
+        input [1:0] state,
+        input new_frame,
         output reg black_ground
     );
 
-    reg last_vsync;
     reg [159:0] pattern [7:0];
     initial begin
         pattern[0]<=160'b1111111111_1111111111_1111111111_1111111111_1111111111_1111111111_1111111111_1111111111_1111111111_1111111111_1111111111_1111111111_1111111111_1111111111_1111111111_1111111111;
@@ -25,11 +24,9 @@ module ground (
     always @(posedge clk) begin
         if (rst) begin
             ground_position <= 10'b0;
-            last_vsync <= 1'b0;
         end
         else begin
-            last_vsync <= vsync;
-            if(vsync && !last_vsync && (state != 2'b0 && state != 2'b11))
+            if(new_frame && (state != 2'b0 && state != 2'b11))
                 ground_position<=(ground_position+6)%10'd160;//move the ground
             else
                 ground_position <= ground_position;

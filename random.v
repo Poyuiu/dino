@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-// design reference:  https://en.wikipedia.org/wiki/Linear-feedback_shift_register
+// design reference:  https://www.xilinx.com/support/documentation/application_notes/xapp052.pdf
 module random(clk, rst, result); // (pseudo random)
     input clk;
     input rst;

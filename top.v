@@ -22,7 +22,6 @@ endmodule
 
 module top(
         input clk, // clock
-        input btnL, // lower button on FPGA
         input btnC, // center button on FPGA
         inout wire PS2_DATA, // for keyboard
         inout wire PS2_CLK, // for keyboard
@@ -96,7 +95,7 @@ module top(
     onepulse op1 (key_down[Q_CODES], Q_down, new_frame); // keep Q_down raised for a full frame
 
     // reset
-    debounce db2(btnL, rst_db, clk);
+    debounce db(btnC, rst_db, clk);
     onepulse op2(rst_db, rst_op, clk_1Hz);
     
     // frame clock
@@ -121,7 +120,6 @@ module top(
     Bot bot (
             .clk(clk),
             .reset(rst_op),
-            .new_frame(new_frame),
             .state(state),
             .Qstate(Qstate),
             .position(cactus_position),
@@ -170,7 +168,6 @@ module top(
               .h_cnt(h_cnt),
               .v_cnt(v_cnt),
               .state(state),
-              .jump_op(jump),
               .black_score(black_score)
           );
     pixel_gen pixel_gen_inst(

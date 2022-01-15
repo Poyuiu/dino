@@ -65,7 +65,6 @@ module score (
         input [9:0] h_cnt, // like x coordinate
         input [9:0] v_cnt, // like y coordinate
         input [1:0] state, // the game state
-        input jump_op, // jump signal
         output reg black_score // for pixel
     );
 

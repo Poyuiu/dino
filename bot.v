@@ -5,7 +5,6 @@
 module Bot(
         input clk, // clock signal
         input reset, // reset signal
-        input new_frame, //  frame rate clock
         input [1:0] state, // game state
         input [1:0] Qstate, //  0: no update on Q table;
                             // 1: good reward update on Q table (for jumping);
@@ -37,7 +36,11 @@ module Bot(
     
     // always block for recording jump_distance and jump_cactus
     always @(posedge clk) begin
-        if (success_jump) begin
+        if (reset) begin
+            jump_distance <= 10'b0;
+            jump_cactus <= 2'b0;
+        end
+        else if (success_jump) begin
             jump_distance <= distance;
             jump_cactus <= cactus;
         end
